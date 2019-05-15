@@ -11,6 +11,8 @@ Een bachelorproef project, waar communicatie centraal staat, tussen mantelzorger
 
 ## Starten
 
+Het installeren van de node_modules via `npm install`
+
 Het starten van de app via `expo start`
 
 ## Icons
