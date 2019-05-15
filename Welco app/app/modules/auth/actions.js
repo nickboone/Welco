@@ -16,11 +16,11 @@ export function register(data, successCB, errorCB) {
     };
 }
 
-export function createUser(user, successCB, errorCB) {
+export function createUser(data, successCB, errorCB) {
     return (dispatch) => {
-        api.createUser(user, function (success, data, error) {
+        api.createUser(data.user, function (success, data, error) {
             if (success) {
-                dispatch({type: t.LOGGED_IN, data: user});
+                dispatch({type: t.LOGGED_IN, data: data.user});
                 successCB();
             }else if (error) errorCB(error)
         });
@@ -47,11 +47,13 @@ export function resetPassword(data, successCB, errorCB) {
     };
 }
 
+
 export function signOut(successCB, errorCB) {
     return (dispatch) => {
         api.signOut(function (success, data, error) {
             if (success) {
                 dispatch({type: t.LOGGED_OUT});
+                console.log('llego aca?');
                 successCB();
             }else if (error) errorCB(error)
         });
@@ -87,7 +89,7 @@ export function signInWithFacebook(facebookToken, successCB, errorCB) {
         api.signInWithFacebook(facebookToken, function (success, data, error) {
             if (success) {
                 if (data.exists) dispatch({type: t.LOGGED_IN, data: data.user});
-                successCB(data);
+                successCB(success,data,error);
             }else if (error) errorCB(error)
         });
     };

@@ -17,15 +17,17 @@ class Welcome extends React.Component {
         this.onSignInWithFacebook = this.onSignInWithFacebook.bind(this);
     }
     
+    //get users permission authorization (ret: facebook token)
     async onSignInWithFacebook() {
         const options = {permissions: ['public_profile', 'email'],}
         const {type, token} = await Facebook.logInWithReadPermissionsAsync(c.FACEBOOK_APP_ID, options);
+
         if (type === 'success') {
             this.props.signInWithFacebook(token, this.onSuccess, this.onError)
         }
     }
 
-    onSuccess({ exists, user}) {
+    onSuccess({ exists, user,message}) {
         if (exists) Actions.Main()
         else Actions.CompleteProfile({ user })
     }
@@ -45,14 +47,14 @@ class Welcome extends React.Component {
                     <View style={styles.bottomContainer}>
                         <View style={[styles.buttonContainer]}>
                             <SocialIcon
-                                raised
-                                button
-                                type='facebook'
-                                title='Inloggen met Facebook'
-                                iconSize={19}
-                                style={[styles.containerView, styles.socialButton]}
-                                fontStyle={styles.buttonText}
-                                onPress={this.onSignInWithFacebook}/>
+                            raised
+                            button
+                            type='facebook'
+                            title='Inloggen met Facebook'
+                            iconSize={19}
+                            style={[styles.containerView, styles.socialButton]}
+                            fontStyle={styles.buttonText}
+                            onPress={this.onSignInWithFacebook}/>
                             <View style={styles.orContainer}></View>
                             <Button
                                 raised

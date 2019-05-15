@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { theme } from "../../index"
 const { padding, color, fontSize, fontFamily, windowWidth, normalize } = theme;
-
+import { ifIphoneX } from 'react-native-iphone-x-helper'
 const resizeMode = 'contain';
 
 const styles = StyleSheet.create({
@@ -66,6 +66,32 @@ const styles = StyleSheet.create({
         marginTop: 20,
         color: color.light_grey,
         fontSize: fontSize.regular,
+    },
+    wrapper:{
+        justifyContent:"center",
+        alignItems: "center",
+        flex: 1,
+        justifyContent: 'flex-end',
+        ...ifIphoneX({
+            marginBottom: '10%',
+            }, {
+            marginBottom: '15%',
+            }) 
+    },
+    btnBox:{
+        alignItems: "center",
+        width: '70%',
+        backgroundColor: "#FF4B4B",
+        padding: 15,
+        marginTop: 30,
+        borderRadius: 4,
+    },
+    SendBtn:{
+        textAlign: 'center',
+        alignItems: "center",
+        fontSize: 16,
+        color: "white",
+        fontFamily: fontFamily.medium
     }
 });
 

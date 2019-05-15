@@ -9,13 +9,17 @@ export function register(data, callback) {
 }
 
 //Create the user object in realtime database
-export function createUser (user, callback) {
-    const userRef = database.ref().child('users');
-
-    userRef.child(user.uid).update({ ...user })
-        .then(() => callback(true, user, null))
-        .catch((error) => callback(false, null, {message: error}));
-}
+export function createUser(data, callback) {
+    const userRef = database.ref().child('/users/' + data.user.uid);
+    const userData = JSON.stringify(data.user);
+    const updates = {};
+    updates['uid'] = data.user.uid;
+    updates['username'] = data.user.displayName;
+    userRef
+      .update(updates)
+      .then(() => callback(true, data.user, null))
+      .catch(error => callback(false, null, { message: error }));
+  }
 
 //Sign the user in with their email and password
 export function login(data, callback) {
@@ -49,21 +53,22 @@ export function resetPassword(data, callback) {
         .catch((error) => callback(false, null, error));
 }
 
-export function signOut (callback) {
+export function signOut(callback) {
     auth.signOut()
-        .then(() => {
-            if (callback) callback(true, null, null)
-        })
-        .catch((error) => {
-            if (callback) callback(false, null, error)
-        });
-}
+      .then(() => {
+        if (callback) callback(true, null, null);
+      })
+      .catch(error => {
+        if (callback) callback(false, null, error);
+      });
+  }
 
 
 //Sign user in using Facebook
-export function signInWithFacebook (fbToken, callback) {
-    const credential = provider.credential(fbToken);
-    auth.signInWithCredential(credential)
-        .then((user) => getUser(user, callback))
-        .catch((error) => callback(false, null, error));
-}
+export function signInWithFacebook(fbToken, callback) {
+    const credential = provider.credential(null, fbToken);
+    auth.signInAndRetrieveDataWithCredential(credential)
+      .then(user => createUser(user, callback))
+      .catch(error => callback(false, null, error));
+  }
+  

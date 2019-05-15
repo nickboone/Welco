@@ -19,7 +19,7 @@ const authReducer = (state = initialState, action) => {
             let keys = ['user'];
             AsyncStorage.multiRemove(keys);
 
-            return {...state, isLoggedIn: false, user: null};
+            return {...state, isLoggedIn: false};
 
         default:
             return state;
