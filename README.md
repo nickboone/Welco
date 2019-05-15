@@ -7,7 +7,7 @@ Een bachelorproef project, waar communicatie centraal staat, tussen mantelzorger
 - React Native
 - Redux
 - Firebase
-- expo
+- Expo
 
 ## Starten
 
