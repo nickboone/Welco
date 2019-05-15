@@ -7,5 +7,5 @@ export const FIREBASE_PROJECT_ID = "health-app-9e557";
 export const FIREBASE_STORAGE_BUCKET = "health-app-9e557.appspot.com";
 export const FIREBASE_MESSAGING_SENDER_ID = "26405752018";
 
-export const FACEBOOK_APP_ID = '1446833162033305';
+export const FACEBOOK_APP_ID = '2204313399836798';
 
