@@ -21,7 +21,7 @@ Icons made by Freepik from www.flaticon.com
 
 ## Nick Boone
 
-Bachelorproef Grafische en Digitale Media
+Bachelor Grafische en Digitale Media
 
 3MMP NMD
 
