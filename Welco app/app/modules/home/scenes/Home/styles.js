@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         ...ifIphoneX({
             marginBottom: '10%',
             }, {
-            marginBottom: '15%',
+            marginBottom: '10%',
             }) 
     },
     btnBox:{
