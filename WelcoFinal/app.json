@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Welco",
+    "slug": "Welco",
+    "description": "Welco app - Arteveldehogeschool 2018-2019 - 3MMP NMD",
+    "icon": "assets/icon.png",
+    "sdkVersion": "27.0.0",
+    "version": "0.1.0",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}
