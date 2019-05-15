@@ -67,7 +67,7 @@ class Calendar extends React.Component {
 function mapStateToProps(state, props) {
     return {
         isLoading: state.homeReducer.isLoading,
-        CalendarItems: state.homeReducer.CalendarItems.filter((Calendar) => { return moment(Calendar.date).isSameOrAfter(moment(new Date(), "DD-MM-YYYY").add(-1, 'days'))  })
+        CalendarItems: state.homeReducer.CalendarItems
     }
 }
 
