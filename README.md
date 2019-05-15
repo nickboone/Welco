@@ -1,6 +1,6 @@
 ## Welco
 
-Een bachelorproef project, waar communicatie centraal staat, tussen mantelzorger en thuiszorger.
+Een bachelorproef project, waar communicatie centraal staat tussen mantelzorger en thuiszorger.
 
 ## Gemaakt in
 
