@@ -54,7 +54,7 @@ class Calendar extends React.Component {
                 <View style={styles.container}>
                     <FlatList
                         ref='listRef'
-                        data={this.props.CalendarItems}
+                        data={this.props.CalendarItems.sort((a, b) => a.date.localeCompare(b.date))}
                         renderItem={this.renderItem}
                         initialNumToRender={5}
                         keyExtractor={(item, index) => index.toString()}/>
